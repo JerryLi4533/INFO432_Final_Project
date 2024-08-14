@@ -1,5 +1,9 @@
 ## Proposal for Multivariate Data Analysis Project
 
+##### Jerry Li
+
+##### jl4533@drexel.edu
+
 #### Dataset Selection and Relevance
 
 For this project, I have selected the **FIFA 22** dataset, which contains extensive data on professional soccer players. The dataset includes 65 features, such as player attributes, ratings, and physical characteristics, with 16,710 samples. As a soccer enthusiast, I find this dataset particularly interesting because it provides a rich source of data that can be analyzed to uncover patterns and insights within the world of soccer. The diverse features in this dataset allow for a comprehensive exploration of how various attributes correlate with player performance, market value, and potential growth.
