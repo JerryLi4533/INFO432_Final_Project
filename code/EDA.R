@@ -52,6 +52,9 @@ sum(is.na(fifa_data_clean))
 # get overall view of each column
 summary(fifa_data_clean)
 
+# save the preprocessed dataset
+write.csv(fifa_data_clean, "../data/FIFA22_official_data_preprocessed.csv", row.names = FALSE)
+
 # Find distribution of overall player rating distribution
 ggplot(fifa_data_clean, aes(x=Overall)) + 
   geom_histogram(binwidth=1, fill="lightblue", color="black") +
@@ -102,13 +105,20 @@ top_10_countries_data <- fifa_data_clean %>%
   filter(Nationality %in% top_10_countries$Nationality)
 
 
-
+# plotting the overall score distribution of the top 50 players from the top 10 countries
 ggplot(top_10_countries_data, aes(x = reorder(Nationality, Overall, FUN = median), y = Overall)) +
   geom_boxplot(fill = "lightblue", color = NA) +
   stat_summary(fun = mean, geom = "point", shape = 21, size = 1, fill = "blue") +
   stat_summary(fun = mean, geom = "text", aes(label = round(..y..)), vjust = -0.5, color = "black", size = 3) +  # use integer to show average rating
   coord_flip() +
   labs(title = "Overall Score Distribution of Top 50 Players from the Top 10 Countries", x = "Nationality", y = "Overall Score") +
+  theme_minimal()
+
+# plotting the relationship between player age and potential rating
+ggplot(fifa_data_clean, aes(x = Age, y = Potential)) +
+  geom_point(alpha = 0.5) +
+  geom_smooth(method = "loess", color = "blue", se = FALSE) +
+  labs(title = "Player Age vs. Potential", x = "Age", y = "Potential") +
   theme_minimal()
 
 
